@@ -132,6 +132,7 @@ Shows the time started in seconds and estimated time( much longer) it will take 
 
 1. MD5 | rockyou.txt + best66 | Weak passwords cracked instantly |
 2. bcrypt | rockyou.txt | Not cracked within test timeframe |
+3. argon2 | rockyou.txt | Not cracked within test timeframe |
 
 ### Why This Matters
 MD5 was designed for speed, which is exactly why it fails as a password
