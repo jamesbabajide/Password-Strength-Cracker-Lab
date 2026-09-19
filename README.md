@@ -91,3 +91,53 @@ accounts, or systems were involved or targeted.
 Never attempt password cracking on systems or accounts you do not own
 or have explicit written authorization to test.
 
+
+## Possible Next Steps
+
+1. Compare MD5 cracking speed against bcrypt/Argon2 hashes
+2. Add entropy calculation (bits of randomness) to the strength checker
+3. Build a simple web front-end for the checker using flask.
+
+
+
+## PART TWO: MD5 vs BCRYPT  vs ARGON2
+
+
+### Hashing Speed Comparison
+| Algorithm | Hashes/sec (approx) |
+
+1. MD5 | 5606.8 kH/s (0.25ms) @ Accel:1024 Loops:1 Thr:1 Vec:8 |
+2. bcrypt | 23 H/s (22.42ms) @ Accel:8 Loops:32 Thr:1 Vec:1 |
+3. Argon2 | 17 H/s (37.86ms) @ Accel:8 Loops:1 Thr:1 Vec:8 |
+
+ 📸 Screenshots
+
+MD5 Output Status
+Shows the time in seconds for MD5 hashes to get cracked 
+
+![Strength checker output](screenshots/Md5.png)
+
+Bcrypt Output Status
+Shows the time started and estimated time(much longer) in days it will take for Bcrypt hashes to be cracked
+
+![Hashcat cracking session](screenshot/Bcrypt.png)
+
+Argon2 Output Status
+Shows the time started in seconds and estimated time( much longer) it will take for Argon2 hashes to be cracked
+
+![Hashcat cracking session](screenshots/Argon2.png)
+
+### Cracking Attempt Comparison
+| Algorithm | Same wordlist/rules | Result |
+
+1. MD5 | rockyou.txt + best64 | Weak passwords cracked instantly |
+2. bcrypt | rockyou.txt | Not cracked within test timeframe |
+
+### Why This Matters
+MD5 was designed for speed, which is exactly why it fails as a password
+hash, an attacker can test billions of guesses per second. bcrypt and
+Argon2 are deliberately slow and automatically salt every hash, meaning:
+1. Two identical passwords never produce the same hash (it defeats
+   precomputed/rainbow table attacks)
+2. Cracking speed drops from billions/sec to single digits/sec, turning
+   a feasible attack into a computationally impractical one.

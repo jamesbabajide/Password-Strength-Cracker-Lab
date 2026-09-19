@@ -1,3 +1,5 @@
 hashes.txt
 password_test.txt
+bcrypt_hashes.txt
+argon2_hashes.txt
 venv/
