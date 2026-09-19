@@ -120,7 +120,7 @@ Shows the time in seconds for MD5 hashes to get cracked
 Bcrypt Output Status
 Shows the time started and estimated time(much longer) in days it will take for Bcrypt hashes to be cracked
 
-![Hashcat cracking session](screenshot/Bcrypt.png)
+![Hashcat cracking session](screenshots/Bcrypt.png)
 
 Argon2 Output Status
 Shows the time started in seconds and estimated time( much longer) it will take for Argon2 hashes to be cracked
@@ -130,7 +130,7 @@ Shows the time started in seconds and estimated time( much longer) it will take 
 ### Cracking Attempt Comparison
 | Algorithm | Same wordlist/rules | Result |
 
-1. MD5 | rockyou.txt + best64 | Weak passwords cracked instantly |
+1. MD5 | rockyou.txt + best66 | Weak passwords cracked instantly |
 2. bcrypt | rockyou.txt | Not cracked within test timeframe |
 
 ### Why This Matters
